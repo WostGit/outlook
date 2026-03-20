@@ -17,7 +17,7 @@ test.describe('Outlook registration', () => {
     await expect(registration.usernameInput.first()).toBeVisible({ timeout: 45_000 });
     await instrumentedPage.typeHuman(
       registration.usernameInput.first(),
-      `sample${Date.now().toString().slice(-6)}`,
+      `sample${Date.now().toString().slice(-6)}@outlook.com`,
       'enter_username'
     );
     await instrumentedPage.click(registration.nextButton.first(), 'username_next');
