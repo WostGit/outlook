@@ -6,10 +6,11 @@ test.describe('Outlook registration', () => {
     const page = instrumentedPage.raw();
     const registration = new OutlookRegistrationPage(page);
 
-    await instrumentedPage.goto('/', 'open_homepage');
-    await instrumentedPage.click(registration.createFreeAccountButton, 'open_create_account');
+    await instrumentedPage.goto('https://signup.live.com/signup', 'open_signup_page');
+    await registration.dismissOptionalBanners();
+    await instrumentedPage.mouseJitter('pre_username_jitter');
 
-    await expect(registration.usernameInput).toBeVisible();
+    await expect(registration.usernameInput).toBeVisible({ timeout: 30_000 });
     await instrumentedPage.typeHuman(
       registration.usernameInput,
       `sample${Date.now().toString().slice(-6)}`,
@@ -17,11 +18,11 @@ test.describe('Outlook registration', () => {
     );
     await instrumentedPage.click(registration.nextButton, 'username_next');
 
-    await expect(registration.passwordInput).toBeVisible();
+    await expect(registration.passwordInput).toBeVisible({ timeout: 30_000 });
     await instrumentedPage.typeHuman(registration.passwordInput, 'Passw0rd!23456', 'enter_password');
     await instrumentedPage.click(registration.nextButton, 'password_next');
 
-    await expect(registration.firstNameInput).toBeVisible();
+    await expect(registration.firstNameInput).toBeVisible({ timeout: 30_000 });
     await instrumentedPage.fill(registration.firstNameInput, 'Playwright', 'enter_first_name');
     await instrumentedPage.fill(registration.lastNameInput, 'Runner', 'enter_last_name');
     await instrumentedPage.click(registration.nextButton, 'profile_next');
