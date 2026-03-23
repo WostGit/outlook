@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test:e2e": "playwright test",
-    "test:e2e:shard": "playwright test --shard=$SHARD_INDEX/$SHARD_TOTAL",
+    "test:e2e:shard": "playwright test --shard=$SHARD_INDEX/$SHARD_TOTAL --workers=1",
     "report": "playwright show-report"
   },
   "devDependencies": {
