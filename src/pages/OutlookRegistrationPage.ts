@@ -19,6 +19,26 @@ export class OutlookRegistrationPage {
     return this.page.locator('input[name="Password"], input#PasswordInput, input[type="password"]');
   }
 
+  get countryRegionSelect(): Locator {
+    return this.page.locator('select[name="Country"], select#Country, [aria-label="Country/Region"]');
+  }
+
+  get birthMonthSelect(): Locator {
+    return this.page.locator('select[name="BirthMonth"], select#BirthMonth, [aria-label="Birth month"]');
+  }
+
+  get birthDaySelect(): Locator {
+    return this.page.locator('select[name="BirthDay"], select#BirthDay, [aria-label="Birth day"]');
+  }
+
+  get birthYearInput(): Locator {
+    return this.page.locator('input[name="BirthYear"], input#BirthYear, [aria-label="Birth year"]');
+  }
+
+  get addDetailsHeading(): Locator {
+    return this.page.getByRole('heading', { name: /add some details/i });
+  }
+
   get firstNameInput(): Locator {
     return this.page.locator('input[name="FirstName"], input#FirstName');
   }
