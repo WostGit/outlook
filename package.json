@@ -1,0 +1,15 @@
+{
+  "name": "outlook-playwright-suite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:shard": "playwright test --shard=$SHARD_INDEX/$SHARD_TOTAL --workers=1",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "typescript": "^5.8.3"
+  }
+}
