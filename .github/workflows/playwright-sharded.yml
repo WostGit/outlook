@@ -2,8 +2,8 @@ name: Playwright Outlook Suite
 
 on:
   push:
-    branches: [main, master]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   e2e:
@@ -28,6 +28,7 @@ jobs:
         env:
           SHARD_INDEX: ${{ matrix.shard_index }}
           SHARD_TOTAL: ${{ matrix.shard_total }}
+          PLAYWRIGHT_JSON_OUTPUT_NAME: test-results.json
         run: |
           set -euo pipefail
           npm run test:e2e:shard -- --reporter=line,json
